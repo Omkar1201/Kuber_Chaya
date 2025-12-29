@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import './Navbar.css';
 
 function Navbar() {
@@ -34,7 +35,8 @@ function Navbar() {
             <nav className="navbar">
                 <div className="navbar-container">
                     <NavLink to="/" className="logo" onClick={closeMenu}>
-                        KUBER CHAYA
+                        <img src={logo} alt="Kuber Chaya Logo" className="logo-image" />
+                        <span className="logo-text">KUBER CHAYA</span>
                     </NavLink>
 
                     <button
