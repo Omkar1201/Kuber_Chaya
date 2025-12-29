@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuber Chaya - Dark Luxury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float-particle 8s ease-in-out infinite;
+        }
+
+        @keyframes float-particle {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-weight: 300;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 1px;
+            background: #d4af37;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px #d4af37;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37;
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .hero {
+            position: relative;
+            margin-top: 100px;
+            padding: 8rem 6% 6rem;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            font-size: 0.9rem;
+            color: #d4af37;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: fadeIn 1s ease;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 6rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
+            }
+
+            50% {
+                text-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+            }
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+            max-width: 700px;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            animation: fadeIn 1s ease 0.3s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+            color: #0a0a0a;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid #d4af37;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease 0.6s backwards;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .event-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 5rem;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .event-item {
+            background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(30, 30, 30, 0.6) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .event-item:hover::before {
+            left: 100%;
+        }
+
+        .event-item:hover {
+            border-color: #d4af37;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .event-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            filter: grayscale(100%) brightness(2);
+        }
+
+        .event-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            color: #d4af37;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .event-description {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="particles" id="particles"></div>
+
+    <nav class="navbar">
+        <div class="logo">KUBER CHAYA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <p class="hero-subtitle">Exclusive Event Destination</p>
+        <h1 class="hero-title">Kuber Chaya</h1>
+        <p class="hero-description">
+            Where luxury meets perfection. Experience unparalleled elegance in our premium resort,
+            crafted for those who demand nothing but the extraordinary.
+        </p>
+        <a href="#reserve" class="cta-button">Reserve Your Date</a>
+
+        <div class="event-showcase">
+            <div class="event-item">
+                <div class="event-icon">👑</div>
+                <h3 class="event-title">Royal Weddings</h3>
+                <p class="event-description">Majestic ceremonies fit for royalty</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-icon">🥂</div>
+                <h3 class="event-title">Gala Events</h3>
+                <p class="event-description">Sophisticated celebrations in style</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-icon">💎</div>
+                <h3 class="event-title">Elite Gatherings</h3>
+                <p class="event-description">Exclusive venues for distinguished guests</p>
+            </div>
+
+            <div class="event-item">
+                <div class="event-icon">🌟</div>
+                <h3 class="event-title">Premium Events</h3>
+                <p class="event-description">Bespoke experiences beyond compare</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 8 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            particlesContainer.appendChild(particle);
+        }
+    </script>
+</body>
+
+</html>

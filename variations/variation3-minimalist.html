@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuber Chaya - Minimalist Elegance</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #fafaf8;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(250, 250, 248, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e8e8e6;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #6b6b6b;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #2c2c2c;
+        }
+
+        .hero {
+            margin-top: 100px;
+            padding: 6rem 8% 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            min-height: calc(100vh - 100px);
+        }
+
+        .hero-content {
+            max-width: 550px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            color: #a67c52;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-description {
+            font-size: 1rem;
+            color: #6b6b6b;
+            line-height: 1.9;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: #2c2c2c;
+            color: #fafaf8;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            border: 1px solid #2c2c2c;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #2c2c2c;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, #e8e8e6 0%, #d4c4b0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            position: relative;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 1px solid rgba(44, 44, 44, 0.1);
+        }
+
+        .shape1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            right: 10%;
+            border-radius: 50%;
+        }
+
+        .shape2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            left: 15%;
+            transform: rotate(45deg);
+        }
+
+        .features {
+            padding: 6rem 8%;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .feature-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .feature-description {
+            font-size: 0.9rem;
+            color: #6b6b6b;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: #a67c52;
+            margin: 0 auto 3rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: #2c2c2c;
+            font-weight: 300;
+        }
+
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">KUBER CHAYA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Premium Event Resort</p>
+            <h1 class="hero-title">Timeless Elegance for Your Special Moments</h1>
+            <p class="hero-description">
+                A serene sanctuary where sophistication meets nature.
+                We curate exceptional experiences for discerning hosts who value refinement and attention to detail.
+            </p>
+            <a href="#contact" class="cta-button">Inquire Now</a>
+        </div>
+
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <div class="geometric-shape shape1"></div>
+                <div class="geometric-shape shape2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <h2 class="section-title">Our Services</h2>
+        <div class="divider"></div>
+
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">💍</div>
+                <h3 class="feature-title">Weddings</h3>
+                <p class="feature-description">Intimate ceremonies in our refined garden venues</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🎊</div>
+                <h3 class="feature-title">Celebrations</h3>
+                <p class="feature-description">Milestone moments deserve exceptional settings</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">Corporate</h3>
+                <p class="feature-description">Professional retreats and executive gatherings</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">🌿</div>
+                <h3 class="feature-title">Private Events</h3>
+                <p class="feature-description">Bespoke experiences tailored to your vision</p>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

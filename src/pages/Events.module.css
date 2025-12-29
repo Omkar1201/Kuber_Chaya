@@ -1,0 +1,195 @@
+.eventsPage {
+    padding-top: 100px;
+}
+
+.eventsHero {
+    text-align: center;
+    padding: 4rem 0 3rem;
+    background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+.pageTitle {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    animation: glow 3s ease-in-out infinite;
+}
+
+.pageSubtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.eventsContent {
+    padding: 4rem 0;
+}
+
+.eventDetail {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 4rem;
+    margin-bottom: 5rem;
+    padding: 3rem;
+    background: rgba(20, 20, 20, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-light);
+    transition: var(--transition-slow);
+}
+
+.eventDetail:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 10px 40px rgba(212, 175, 55, 0.1);
+    background: rgba(30, 30, 30, 0.5);
+}
+
+.eventDetail.reverse {
+    grid-template-columns: 1fr 200px;
+}
+
+.eventDetail.reverse .iconWrapper {
+    order: 2;
+}
+
+.eventDetail.reverse .content {
+    order: 1;
+}
+
+.iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.icon {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--color-gold);
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    background: transparent;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.1);
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.icon svg {
+    transform: rotate(-45deg);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+}
+
+.eventDetail:hover .icon {
+    background: rgba(212, 175, 55, 0.15);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+    border-color: var(--color-gold-light);
+    transform: rotate(45deg) scale(1.05);
+}
+
+.eventDetail:hover .icon svg {
+    color: var(--color-gold-light);
+    transform: rotate(-45deg) scale(1.1);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.6));
+}
+
+.content h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-gold);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    color: var(--color-text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.features {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.features li {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+}
+
+.eventsCta {
+    padding: 4rem 0;
+}
+
+.ctaBox {
+    text-align: center;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(30, 30, 30, 0.6) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--color-border);
+}
+
+.ctaBox h2 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.ctaBox p {
+    color: var(--color-text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 968px) {
+
+    .eventDetail,
+    .eventDetail.reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .eventDetail.reverse .iconWrapper,
+    .eventDetail.reverse .content {
+        order: initial;
+    }
+
+    .icon svg {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .eventDetail {
+        padding: 2rem 1.5rem;
+    }
+
+    .ctaBox {
+        padding: 3rem 2rem;
+    }
+}
