@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '../components/Modal';
+import PageTransition from '../components/PageTransition';
 import './Gallery.css';
 
 function Gallery() {
@@ -35,63 +36,65 @@ function Gallery() {
         : images.filter(img => img.category === filter);
 
     return (
-        <div className="gallery-page">
-            <section className="gallery-hero">
-                <div className="container">
-                    <h1 className="page-title">Event Gallery</h1>
-                    <p className="page-subtitle">
-                        Explore our stunning venues and past celebrations. Each image tells a story of
-                        unforgettable moments created at Kuber Chaya.
-                    </p>
-                </div>
-            </section>
-
-            <section className="gallery-content section">
-                <div className="container">
-                    <div className="gallery-filters">
-                        {categories.map((cat) => (
-                            <button
-                                key={cat.value}
-                                className={`filter-btn ${filter === cat.value ? 'active' : ''}`}
-                                onClick={() => setFilter(cat.value)}
-                            >
-                                {cat.label}
-                            </button>
-                        ))}
+        <PageTransition>
+            <div className="gallery-page">
+                <section className="gallery-hero">
+                    <div className="container">
+                        <h1 className="page-title">Event Gallery</h1>
+                        <p className="page-subtitle">
+                            Explore our stunning venues and past celebrations. Each image tells a story of
+                            unforgettable moments created at Kuber Chaya.
+                        </p>
                     </div>
+                </section>
 
-                    <div className="gallery-grid">
-                        {filteredImages.map((image) => (
-                            <div
-                                key={image.id}
-                                className="gallery-item"
-                                onClick={() => setSelectedImage(image)}
-                            >
-                                <div className="gallery-image-placeholder">
-                                    <span className="placeholder-icon">🖼️</span>
-                                    <p className="placeholder-text">{image.alt}</p>
-                                </div>
-                                <div className="gallery-overlay">
-                                    <span className="view-icon">🔍</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+                <section className="gallery-content section">
+                    <div className="container">
+                        <div className="gallery-filters">
+                            {categories.map((cat) => (
+                                <button
+                                    key={cat.value}
+                                    className={`filter-btn ${filter === cat.value ? 'active' : ''}`}
+                                    onClick={() => setFilter(cat.value)}
+                                >
+                                    {cat.label}
+                                </button>
+                            ))}
+                        </div>
 
-            <Modal isOpen={selectedImage !== null} onClose={() => setSelectedImage(null)}>
-                {selectedImage && (
-                    <div className="modal-image-content">
-                        <div className="modal-image-placeholder">
-                            <span className="placeholder-icon-large">🖼️</span>
-                            <h3>{selectedImage.alt}</h3>
-                            <p>Image placeholder - {selectedImage.category}</p>
+                        <div className="gallery-grid">
+                            {filteredImages.map((image) => (
+                                <div
+                                    key={image.id}
+                                    className="gallery-item"
+                                    onClick={() => setSelectedImage(image)}
+                                >
+                                    <div className="gallery-image-placeholder">
+                                        <span className="placeholder-icon">🖼️</span>
+                                        <p className="placeholder-text">{image.alt}</p>
+                                    </div>
+                                    <div className="gallery-overlay">
+                                        <span className="view-icon">🔍</span>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                )}
-            </Modal>
-        </div>
+                </section>
+
+                <Modal isOpen={selectedImage !== null} onClose={() => setSelectedImage(null)}>
+                    {selectedImage && (
+                        <div className="modal-image-content">
+                            <div className="modal-image-placeholder">
+                                <span className="placeholder-icon-large">🖼️</span>
+                                <h3>{selectedImage.alt}</h3>
+                                <p>Image placeholder - {selectedImage.category}</p>
+                            </div>
+                        </div>
+                    )}
+                </Modal>
+            </div>
+        </PageTransition>
     );
 }
 

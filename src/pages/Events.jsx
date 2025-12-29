@@ -1,4 +1,5 @@
 import Button from '../components/Button';
+import PageTransition from '../components/PageTransition';
 import styles from './Events.module.css';
 import { FaCrown, FaHandshake, FaMusic, FaGift } from 'react-icons/fa6';
 
@@ -31,51 +32,53 @@ function Events() {
     ];
 
     return (
-        <div className={styles.eventsPage}>
-            <section className={styles.eventsHero}>
-                <div className="container">
-                    <h1 className={styles.pageTitle}>Our Events</h1>
-                    <p className={styles.pageSubtitle}>
-                        Discover the perfect venue for your celebration. Each event type is carefully curated
-                        to provide an exceptional experience tailored to your needs.
-                    </p>
-                </div>
-            </section>
+        <PageTransition>
+            <div className={styles.eventsPage}>
+                <section className={styles.eventsHero}>
+                    <div className="container">
+                        <h1 className={styles.pageTitle}>Our Events</h1>
+                        <p className={styles.pageSubtitle}>
+                            Discover the perfect venue for your celebration. Each event type is carefully curated
+                            to provide an exceptional experience tailored to your needs.
+                        </p>
+                    </div>
+                </section>
 
-            <section className={`${styles.eventsContent} section`}>
-                <div className="container">
-                    {eventTypes.map((event, index) => (
-                        <div key={index} className={`${styles.eventDetail} ${index % 2 === 1 ? styles.reverse : ''}`}>
-                            <div className={styles.iconWrapper}>
-                                <div className={styles.icon}>
-                                    {event.icon}
+                <section className={`${styles.eventsContent} section`}>
+                    <div className="container">
+                        {eventTypes.map((event, index) => (
+                            <div key={index} className={`${styles.eventDetail} ${index % 2 === 1 ? styles.reverse : ''}`}>
+                                <div className={styles.iconWrapper}>
+                                    <div className={styles.icon}>
+                                        {event.icon}
+                                    </div>
+                                </div>
+                                <div className={styles.content}>
+                                    <h2>{event.title}</h2>
+                                    <p className={styles.description}>{event.description}</p>
+                                    <ul className={styles.features}>
+                                        {event.features.map((feature, idx) => (
+                                            <li key={idx}>{feature}</li>
+                                        ))}
+                                    </ul>
+                                    <Button variant="primary" to="/contact">Inquire Now</Button>
                                 </div>
                             </div>
-                            <div className={styles.content}>
-                                <h2>{event.title}</h2>
-                                <p className={styles.description}>{event.description}</p>
-                                <ul className={styles.features}>
-                                    {event.features.map((feature, idx) => (
-                                        <li key={idx}>{feature}</li>
-                                    ))}
-                                </ul>
-                                <Button variant="primary" to="/contact">Inquire Now</Button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section >
-
-            <section className={`${styles.eventsCta} section`}>
-                <div className="container">
-                    <div className={styles.ctaBox}>
-                        <h2>Need Help Choosing?</h2>
-                        <p>Our event specialists are here to help you find the perfect venue and services for your occasion.</p>
-                        <Button variant="secondary" to="/contact">Contact Our Team</Button>
+                        ))}
                     </div>
-                </div>
-            </section>
-        </div >
+                </section >
+
+                <section className={`${styles.eventsCta} section`}>
+                    <div className="container">
+                        <div className={styles.ctaBox}>
+                            <h2>Need Help Choosing?</h2>
+                            <p>Our event specialists are here to help you find the perfect venue and services for your occasion.</p>
+                            <Button variant="secondary" to="/contact">Contact Our Team</Button>
+                        </div>
+                    </div>
+                </section>
+            </div >
+        </PageTransition>
     );
 }
 
