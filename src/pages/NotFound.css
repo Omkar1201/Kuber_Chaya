@@ -1,0 +1,115 @@
+.not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: calc(var(--navbar-height) + 2rem) 5% 6rem;
+    position: relative;
+    overflow: hidden;
+    background: var(--color-bg-primary);
+}
+
+.not-found-content {
+    z-index: 2;
+    max-width: 800px;
+}
+
+.error-code {
+    font-family: var(--font-heading);
+    font-size: clamp(8rem, 20vw, 15rem);
+    color: transparent;
+    -webkit-text-stroke: 2px var(--color-gold);
+    line-height: 1;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+    position: relative;
+    text-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.error-code::after {
+    content: '404';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--color-gold);
+    opacity: 0.1;
+    filter: blur(10px);
+}
+
+.not-found-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.not-found-desc {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--color-text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 1px solid var(--color-gold);
+    background: transparent;
+    color: var(--color-gold);
+    font-family: var(--font-subheading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.home-btn:hover {
+    background: var(--color-gold);
+    color: var(--color-bg-primary);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Background Elements */
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.circle-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    left: -200px;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+    .error-code {
+        -webkit-text-stroke: 1px var(--color-gold);
+    }
+
+    .home-btn {
+        padding: 0.8rem 2.5rem;
+        font-size: 1rem;
+    }
+}

@@ -50,12 +50,6 @@ function About() {
                                 world-class facilities. Every detail has been meticulously crafted to provide an
                                 atmosphere of refined luxury that elevates every occasion.
                             </p>
-                            <p>
-                                From intimate gatherings to grand celebrations, we've hosted over 500 events,
-                                creating memories that last a lifetime. Our commitment to excellence and attention
-                                to detail has made us the preferred choice for discerning hosts who demand nothing
-                                but the best.
-                            </p>
                         </div>
                     </div>
                 </section>
