@@ -173,6 +173,180 @@
 
     .gallery-grid {
         grid-template-columns: 1fr;
-
     }
+}
+
+/* Album Styles for Modal */
+.modal-album-content {
+    width: 80vw;
+    max-width: 1000px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow: hidden;
+    /* Prevent full modal scroll if we want internal scroll */
+}
+
+.modal-header {
+    margin-bottom: 2rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.modal-header h2 {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal-header p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+    /* Custom scrollbar styling */
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-gold) var(--color-bg-light);
+}
+
+.album-grid::-webkit-scrollbar {
+    width: 6px;
+}
+
+.album-grid::-webkit-scrollbar-thumb {
+    background-color: var(--color-gold);
+    border-radius: 3px;
+}
+
+.album-grid::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.album-photo-placeholder {
+    aspect-ratio: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 4px;
+    transition: var(--transition-normal);
+}
+
+.album-photo-placeholder:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--color-gold);
+}
+
+.photo-icon {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+.photo-label {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.item-count {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--color-gold);
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--color-gold);
+    border-radius: 12px;
+}
+
+.view-icon {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--color-bg-primary);
+    padding: 0.8rem 1.5rem;
+    background: var(--color-gold);
+    border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+    .modal-album-content {
+        width: 95vw;
+        padding: 0;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-filters {
+        gap: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        flex: 1 1 auto;
+        /* Allow buttons to grow/shrink properly */
+    }
+
+    /* Force full screen modal on mobile */
+    .album-modal {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100% !important;
+        max-height: 100% !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-album-content {
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        padding: 4rem 1rem 1rem;
+        /* Top padding for close button */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns */
+        gap: 0.8rem;
+        flex: 1;
+        /* Take remaining space */
+        padding-bottom: 2rem;
+    }
+
+    .modal-header {
+        margin-bottom: 1rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+
+    /* Reposition close button if needed, but default absolute usually works. 
+       We gave padding-top to content to avoid overlap. */
 }
