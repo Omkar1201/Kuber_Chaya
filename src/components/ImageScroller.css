@@ -1,0 +1,226 @@
+.scroller-section {
+    padding: 4rem 0;
+    background-color: #1a1a1a;
+    overflow: hidden;
+}
+
+.scroller-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    font-size: 2.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 60%;
+    /* Center image width */
+    height: 90%;
+    /* Smoother transition with custom bezier */
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.8s ease;
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(0) scale(0.8);
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background: #000;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Changed to cover to fill area and hide background */
+    background: transparent;
+    pointer-events: none;
+    /* Prevent dragging image */
+}
+
+/* Active Center Slide */
+/* Active Center Slide */
+.slide.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 10;
+    border: 2px solid #d4af37;
+    /* Gold border */
+}
+
+/* Prev Slide (Left) */
+.slide.prev {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(0.85);
+    /* Moved closer */
+    z-index: 5;
+    cursor: pointer;
+}
+
+/* Next Slide (Right) */
+.slide.next {
+    opacity: 0.7;
+    transform: translateX(50%) scale(0.85);
+    /* Moved closer */
+    z-index: 5;
+    cursor: pointer;
+}
+
+/* Outer Neighbors (Far Left/Right) - NEW */
+.slide.prev-2 {
+    opacity: 0.4;
+    transform: translateX(-85%) scale(0.7);
+    z-index: 2;
+    cursor: pointer;
+}
+
+.slide.next-2 {
+    opacity: 0.4;
+    transform: translateX(85%) scale(0.7);
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* Hidden slides */
+.slide.hidden {
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    transform: scale(0);
+}
+
+/* Navigation Arrows */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #d4af37;
+    border: 2px solid #d4af37;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.nav-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .scroller-title {
+        font-size: 2rem;
+    }
+
+    .slider-wrapper {
+        height: 300px;
+    }
+
+    .slide {
+        width: 70%;
+        /* Wider on mobile */
+    }
+
+    .slide.prev {
+        transform: translateX(-45%) scale(0.85);
+        /* Tighter spacing on mobile */
+    }
+
+    .slide.next {
+        transform: translateX(45%) scale(0.85);
+    }
+
+    .slide.prev-2 {
+        transform: translateX(-80%) scale(0.7);
+        opacity: 0.3;
+    }
+
+    .slide.next-2 {
+        transform: translateX(80%) scale(0.7);
+        opacity: 0.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroller-section {
+        padding: 2rem 0;
+    }
+
+    .scroller-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .slider-wrapper {
+        height: 250px;
+    }
+
+    .slide {
+        width: 85%;
+        /* Much wider on small mobile */
+    }
+
+    /* Adjust overlapping for tighter screen */
+    .slide.prev {
+        transform: translateX(-55%) scale(0.85);
+        opacity: 0.5;
+    }
+
+    .slide.next {
+        transform: translateX(55%) scale(0.85);
+        opacity: 0.5;
+    }
+
+    /* Hide the 2nd level neighbors on very small screens to reduce clutter */
+    .slide.prev-2 {
+        transform: translateX(-100%) scale(0.6);
+        opacity: 0;
+    }
+
+    .slide.next-2 {
+        transform: translateX(100%) scale(0.6);
+        opacity: 0;
+    }
+
+    .nav-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import EventCard from '../components/EventCard';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
+import ImageScroller from '../components/ImageScroller';
 import './Home.css';
 import { FaCrown, FaHandshake, FaMusic, FaGift } from 'react-icons/fa6';
 
@@ -111,6 +112,9 @@ function Home() {
                         </div>
                     </div>
                 </section>
+
+                {/* Image Scroller Section */}
+                <ImageScroller />
 
                 {/* Testimonials */}
                 <section className="testimonials-section section">
