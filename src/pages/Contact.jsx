@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import PageTransition from '../components/PageTransition';
 import './Contact.css';
@@ -68,13 +69,13 @@ function Contact() {
                             <div className="contact-info">
                                 <h2>Contact Information</h2>
 
-                                <div className="info-item">
+                                <Link to="/about#location-accessibility" className="info-item info-item-link">
                                     <div className="info-icon"><FaMapMarkerAlt /></div>
                                     <div className="info-text">
                                         <h3>Address</h3>
                                         <p>123 Resort Lane<br />Paradise Valley, PV 12345</p>
                                     </div>
-                                </div>
+                                </Link>
 
                                 <div className="info-item">
                                     <div className="info-icon"><FaPhoneAlt /></div>

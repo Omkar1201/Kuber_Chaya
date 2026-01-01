@@ -1,8 +1,20 @@
+import { useEffect } from 'react';
 import { FaHotel, FaTree, FaUtensils, FaCar, FaMusic, FaBed, FaLocationDot, FaPlane, FaBus } from 'react-icons/fa6';
 import PageTransition from '../components/PageTransition';
 import './About.css';
 
 function About() {
+    useEffect(() => {
+        // Scroll to section if hash is present in URL
+        if (window.location.hash === '#location-accessibility') {
+            setTimeout(() => {
+                const element = document.getElementById('location-accessibility');
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
+    }, []);
     const facilities = [
         { icon: <FaHotel />, name: 'Grand Ballroom', description: '10,000 sq ft of elegant space' },
         { icon: <FaTree />, name: 'Garden Venues', description: 'Beautiful outdoor settings' },
@@ -91,7 +103,7 @@ function About() {
                     </div>
                 </section>
 
-                <section className="location-section section">
+                <section id="location-accessibility" className="location-section section">
                     <div className="container">
                         <h2 className="section-title">Location & Accessibility</h2>
                         <div className="location-content">

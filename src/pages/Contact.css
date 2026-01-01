@@ -38,6 +38,18 @@
     border-bottom: none;
 }
 
+.info-item-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.info-item-link:hover {
+    border-color: var(--color-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
 .info-icon {
     font-size: 3.5rem;
     flex-shrink: 0;
