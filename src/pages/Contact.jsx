@@ -80,7 +80,9 @@ function Contact() {
                                     <div className="info-icon"><FaPhoneAlt /></div>
                                     <div className="info-text">
                                         <h3>Phone</h3>
-                                        <p>+1 (555) 123-4567</p>
+                                        <p>
+                                            <a href="tel:+15551234567" className="contact-link">+1 (555) 123-4567</a>
+                                        </p>
                                     </div>
                                 </div>
 
@@ -88,7 +90,10 @@ function Contact() {
                                     <div className="info-icon"><FaEnvelope /></div>
                                     <div className="info-text">
                                         <h3>Email</h3>
-                                        <p>info@kuberchaya.com<br />events@kuberchaya.com</p>
+                                        <p>
+                                            <a href="mailto:info@kuberchaya.com" className="contact-link">info@kuberchaya.com</a><br />
+                                            <a href="mailto:events@kuberchaya.com" className="contact-link">events@kuberchaya.com</a>
+                                        </p>
                                     </div>
                                 </div>
 
