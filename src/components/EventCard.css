@@ -81,12 +81,12 @@
 
 @media (max-width: 480px) {
     .event-card {
-        padding: 1.5rem 1rem;
+        padding: 1rem 1rem;
     }
 
     .event-icon {
         font-size: 2rem;
-        margin-bottom: 0.6rem;
+        margin-bottom: 0rem;
     }
 
     .event-title {
