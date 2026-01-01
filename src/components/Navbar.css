@@ -118,6 +118,21 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 0 5px var(--color-gold);
     transform-origin: center;
+    display: block;
+    position: absolute;
+}
+
+.menu-toggle span:nth-child(1) {
+    top: calc(50% - 8px);
+}
+
+.menu-toggle span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-toggle span:nth-child(3) {
+    top: calc(50% + 8px);
 }
 
 .menu-toggle:hover span {
@@ -125,16 +140,18 @@
 }
 
 .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
 }
 
 .menu-toggle.active span:nth-child(2) {
     opacity: 0;
-    transform: scaleX(0);
+    transform: translateY(-50%) scaleX(0);
 }
 
 .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
+    top: 50%;
+    transform: translateY(-50%) rotate(-45deg);
 }
 
 /* Mobile Menu Overlay */
@@ -172,7 +189,7 @@
 
 @media (max-width: 768px) {
     .navbar {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
     }
 
     .navbar-container {
@@ -180,13 +197,13 @@
     }
 
     .logo {
-        font-size: 1.5rem;
+        font-size: 2rem;
         letter-spacing: 2px;
         gap: 0.6rem;
     }
 
     .logo-image {
-        height: 35px;
+        height: 45px;
     }
 
     .menu-toggle {
@@ -251,7 +268,7 @@
 
 @media (max-width: 640px) {
     .navbar {
-        padding: 1.25rem 0;
+        padding: 1.75rem 0;
     }
 
     .navbar-container {
@@ -259,13 +276,13 @@
     }
 
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
         letter-spacing: 1.5px;
         gap: 0.5rem;
     }
 
     .logo-image {
-        height: 30px;
+        height: 40px;
     }
 
     .menu-toggle {
@@ -293,17 +310,17 @@
 
 @media (max-width: 480px) {
     .navbar {
-        padding: 1rem 0;
+        padding: 1.5rem 0;
     }
 
     .logo {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
         letter-spacing: 1px;
         gap: 0.4rem;
     }
 
     .logo-image {
-        height: 26px;
+        height: 38px;
     }
 
     .menu-toggle {
