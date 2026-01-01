@@ -110,7 +110,7 @@ function About() {
                                     src="https://maps.google.com/maps?q=17.597169013017833,74.05709766651228&z=15&t=k&output=embed"
                                     width="100%"
                                     height="100%"
-                                    style={{ border: 0, minHeight: '400px' }}
+                                    style={{ border: 0 }}
                                     allowFullScreen=""
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"

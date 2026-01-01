@@ -8,6 +8,19 @@
     background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
 }
 
+.page-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+}
+
+.page-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--color-text-secondary);
+    font-weight: 300;
+}
+
 .about-story {
     padding: 4rem 0;
 }
@@ -47,17 +60,20 @@
 
 .facilities-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
     margin-top: 3rem;
+    max-width: 100%;
 }
 
 .facility-card {
     background: rgba(20, 20, 20, 0.6);
     border: 1px solid var(--color-border-light);
-    padding: 2.5rem 2rem;
+    padding: 1.8rem 1.2rem;
     text-align: center;
     transition: var(--transition-slow);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .facility-card:hover {
@@ -67,16 +83,16 @@
 }
 
 .facility-icon {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
-    font-size: 2.5rem;
+    margin: 0 auto 1rem;
+    font-size: 2rem;
     color: var(--color-gold);
     backdrop-filter: blur(5px);
     transition: all 0.3s ease;
@@ -109,14 +125,16 @@
 
 .facility-card h3 {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--color-gold);
-    margin-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
 }
 
 .facility-card p {
     color: var(--color-text-secondary);
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .mission-section {
@@ -187,6 +205,7 @@
     color: var(--color-gold);
     font-size: 1.2rem;
     min-width: 25px;
+    flex-shrink: 0;
     /* Ensures icon alignment */
 }
 
@@ -206,6 +225,7 @@
     border: none;
 }
 
+/* Tablet and below */
 @media (max-width: 968px) {
     .location-content {
         grid-template-columns: 1fr;
@@ -216,14 +236,254 @@
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .story-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .location-info h3 {
+        font-size: 1.75rem;
+    }
+
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .facility-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .facility-icon {
+        width: 75px;
+        height: 75px;
+        font-size: 2.2rem;
+    }
+
+    .facility-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .facility-card p {
+        font-size: 0.9rem;
+    }
 }
 
-@media (max-width: 640px) {
+/* Mobile devices */
+@media (max-width: 768px) {
+    .about-page {
+        padding-top: 80px;
+    }
+
+    .about-hero {
+        padding: 3rem 0 2rem;
+    }
+
+    .about-story {
+        padding: 3rem 0;
+    }
+
+    .story-content {
+        padding: 0 1rem;
+    }
+
+    .story-content h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .story-content p {
+        font-size: 1rem;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+    }
+
+    .facilities-section {
+        padding: 3rem 0;
+    }
+
+    .section-title {
+        font-size: clamp(1.75rem, 5vw, 2.5rem);
+        margin-bottom: 2rem;
+    }
+
     .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .facility-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .facility-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .facility-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .facility-card p {
+        font-size: 0.9rem;
+    }
+
+    .mission-section {
+        padding: 3rem 0;
+    }
+
+    .mission-content {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
     }
 
     .mission-item {
         padding: 2rem 1.5rem;
+    }
+
+    .mission-item h3 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .mission-item p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .location-section {
+        padding: 3rem 0;
+    }
+
+    .location-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .location-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .location-list li {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+        gap: 12px;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .location-icon {
+        font-size: 1rem;
+        min-width: 20px;
+    }
+
+    .map-container {
+        min-height: 300px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .about-page {
+        padding-top: 70px;
+    }
+
+    .about-hero {
+        padding: 2.5rem 0 1.5rem;
+    }
+
+    .about-story {
+        padding: 2.5rem 0;
+    }
+
+    .story-content h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .story-content p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 1rem;
+    }
+
+    .facilities-section {
+        padding: 2.5rem 0;
+    }
+
+    .section-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+        margin-bottom: 1.5rem;
+    }
+
+    .facilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+
+    .facility-card {
+        padding: 1.2rem 0.8rem;
+    }
+
+    .facility-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .facility-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .facility-card p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .mission-section {
+        padding: 2.5rem 0;
+    }
+
+    .mission-item {
+        padding: 1.5rem 1.2rem;
+    }
+
+    .mission-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .mission-item p {
+        font-size: 0.9rem;
+    }
+
+    .location-section {
+        padding: 2.5rem 0;
+    }
+
+    .location-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .location-list li {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .map-container {
+        min-height: 250px;
     }
 }
