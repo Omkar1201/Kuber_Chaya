@@ -444,6 +444,13 @@
     }
 }
 
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+}
+
 @media (max-width: 480px) {
     .hero {
         padding: calc(var(--navbar-height) + 1rem) 5% 2rem;
@@ -456,7 +463,7 @@
     }
 
     .hero-title {
-        font-size: clamp(1.5rem, 8vw, 2.5rem);
+        font-size: 1.75rem;
         margin-bottom: 1rem;
     }
 
