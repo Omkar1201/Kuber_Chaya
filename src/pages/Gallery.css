@@ -1,10 +1,10 @@
 .gallery-page {
-    padding-top: 100px;
+    padding-top: var(--navbar-height);
 }
 
 .gallery-hero {
     text-align: center;
-    padding: 4rem 0 3rem;
+    padding: 2rem 0 2rem;
     background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
 }
 
@@ -146,6 +146,10 @@
 }
 
 @media (max-width: 768px) {
+    .gallery-hero {
+        padding: 1.5rem 0 1.5rem;
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1.5rem;
@@ -163,7 +167,12 @@
 }
 
 @media (max-width: 640px) {
+    .gallery-hero {
+        padding: 1rem 0 1rem;
+    }
+
     .gallery-grid {
         grid-template-columns: 1fr;
+
     }
 }

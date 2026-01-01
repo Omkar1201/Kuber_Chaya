@@ -20,6 +20,9 @@
   --spacing-xl: 3rem;
   --spacing-2xl: 4rem;
 
+  /* Navbar Dimensions */
+  --navbar-height: 110px;
+
   /* Typography - Premium Luxury Fonts */
   --font-heading: 'Playfair Display', serif;
   --font-subheading: 'Cormorant Garamond', serif;
@@ -239,5 +242,15 @@ a {
 
   h3 {
     font-size: 1.5rem;
+  }
+
+  :root {
+    --navbar-height: 96px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --navbar-height: 86px;
   }
 }
