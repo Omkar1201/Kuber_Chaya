@@ -86,6 +86,11 @@ function Home() {
                                 />
                             ))}
                         </div>
+                        <div className="event-grid-more">
+                            <Link to="/events" className="view-all-link">
+                                View All Events <span className="arrow">→</span>
+                            </Link>
+                        </div>
                     </div>
                 </section>
 
@@ -154,8 +159,8 @@ function Home() {
                         </div>
                     </div>
                 </section>
-            </div>
-        </PageTransition>
+            </div >
+        </PageTransition >
     );
 }
 
