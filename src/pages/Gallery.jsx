@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import Modal from '../components/Modal';
+import Lightbox from '../components/Lightbox'; // Import Lightbox
 import PageTransition from '../components/PageTransition';
 import './Gallery.css';
 
 function Gallery() {
-    const [selectedImage, setSelectedImage] = useState(null);
+    // State for the album modal
+    const [selectedAlbum, setSelectedAlbum] = useState(null);
+    // State for filtering
     const [filter, setFilter] = useState('all');
+
+    // State for Lightbox (single photo view)
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
 
     // Placeholder images with categories and sub-gallery items
     const images = [
@@ -95,6 +102,32 @@ function Gallery() {
         ? images
         : images.filter(img => img.category === filter);
 
+    // Lightbox Handlers
+    const openLightbox = (index) => {
+        setCurrentPhotoIndex(index);
+        setLightboxOpen(true);
+    };
+
+    const closeLightbox = () => {
+        setLightboxOpen(false);
+    };
+
+    const handleNextPhoto = () => {
+        if (selectedAlbum) {
+            setCurrentPhotoIndex(prev =>
+                prev === selectedAlbum.gallery.length - 1 ? 0 : prev + 1
+            );
+        }
+    };
+
+    const handlePrevPhoto = () => {
+        if (selectedAlbum) {
+            setCurrentPhotoIndex(prev =>
+                prev === 0 ? selectedAlbum.gallery.length - 1 : prev - 1
+            );
+        }
+    };
+
     return (
         <PageTransition>
             <div className="gallery-page">
@@ -127,7 +160,7 @@ function Gallery() {
                                 <div
                                     key={image.id}
                                     className="gallery-item"
-                                    onClick={() => setSelectedImage(image)}
+                                    onClick={() => setSelectedAlbum(image)}
                                 >
                                     <div className="gallery-image-placeholder">
                                         <span className="placeholder-icon">📂</span>
@@ -143,16 +176,26 @@ function Gallery() {
                     </div>
                 </section>
 
-                <Modal isOpen={selectedImage !== null} onClose={() => setSelectedImage(null)} className="album-modal">
-                    {selectedImage && (
+                {/* Album Modal (Folder View) */}
+                <Modal
+                    isOpen={selectedAlbum !== null}
+                    onClose={() => setSelectedAlbum(null)}
+                    className="album-modal"
+                >
+                    {selectedAlbum && (
                         <div className="modal-album-content">
                             <div className="modal-header">
-                                <h2>{selectedImage.alt}</h2>
-                                <p>{selectedImage.gallery.length} Photos in this album</p>
+                                <h2>{selectedAlbum.alt}</h2>
+                                <p>{selectedAlbum.gallery.length} Photos in this album</p>
                             </div>
                             <div className="album-grid">
-                                {selectedImage.gallery.map((photo, index) => (
-                                    <div key={index} className="album-photo-placeholder">
+                                {selectedAlbum.gallery.map((photo, index) => (
+                                    <div
+                                        key={index}
+                                        className="album-photo-placeholder"
+                                        onClick={() => openLightbox(index)}
+                                        style={{ cursor: 'pointer' }}
+                                    >
                                         <span className="photo-icon">📷</span>
                                         <span className="photo-label">{photo.alt}</span>
                                     </div>
@@ -161,6 +204,19 @@ function Gallery() {
                         </div>
                     )}
                 </Modal>
+
+                {/* Lightbox for Single Image View */}
+                {selectedAlbum && (
+                    <Lightbox
+                        isOpen={lightboxOpen}
+                        onClose={closeLightbox}
+                        image={selectedAlbum.gallery[currentPhotoIndex]}
+                        onNext={handleNextPhoto}
+                        onPrev={handlePrevPhoto}
+                        hasNext={selectedAlbum.gallery.length > 1}
+                        hasPrev={selectedAlbum.gallery.length > 1}
+                    />
+                )}
             </div>
         </PageTransition>
     );
